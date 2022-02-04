@@ -18,7 +18,7 @@ end
 
 RSpec.describe Book, type: :model do
   subject do
-    described_class.new(author: 'J.K. Rowling')
+    described_class.new(title: 'harry potter', author: 'jk Rowling')
   end
 
   it 'is valid with valid attributes' do
@@ -26,14 +26,14 @@ RSpec.describe Book, type: :model do
   end
 
   it 'is not valid without a name' do
-    subject.author = nil
+    subject.title = nil
     expect(subject).not_to be_valid
   end
 end
 
 RSpec.describe Book, type: :model do
   subject do
-    described_class.new(price: 15.00)
+    described_class.new(title: 'harry potter', price: '45')
   end
 
   it 'is valid with valid attributes' do
@@ -41,7 +41,7 @@ RSpec.describe Book, type: :model do
   end
 
   it 'is not valid without a name' do
-    subject.price = nil
+    subject.title = nil
     expect(subject).not_to be_valid
   end
 end

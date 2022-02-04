@@ -15,34 +15,33 @@ RSpec.describe 'Creating a book with an author', type: :feature do
     scenario 'valid inputs' do
         visit new_book_path
         fill_in 'Title', with: 'harry potter'
-        fill_in 'Author', with: 'J.K. Rowling'
+        fill_in 'Author', with: 'jk rowling'
         click_on 'Create Book'
         visit books_path
-        expect(page).to have_content('harry potter')
+        expect(page).to have_content('jk rowling')
     end
 end
 
-# RSpec.describe 'Creating a book with an author and date', type: :feature do
-#     scenario 'valid inputs' do
-#       visit new_book_path
-#       fill_in 'Title', with: 'harry potter'
-#       fill_in 'Author', with: 'J. K. Rowling'
-#       select 'Date', :from => 'field_name'
-#       click_on 'Create Book'
-#       visit books_path
-#       expect(page).to have_content('harry potter')
-#     end
-#   end
+RSpec.describe 'Creating a book with an author and price', type: :feature do
+    scenario 'valid inputs' do
+      visit new_book_path
+      fill_in 'Title', with: 'harry potter'
+      fill_in 'Author', with: 'jk rowling'
+      fill_in 'Price', with: '45'
+      click_on 'Create Book'
+      visit books_path
+      expect(page).to have_content('45')
+    end
+  end
 
-#   RSpec.describe 'Creating a book with an author, date, and price', type: :feature do
-#     scenario 'valid inputs' do
-#       visit new_book_path
-#       fill_in 'Title', with: 'harry potter'
-#       fill_in 'Author', with: 'J. K. Rowling'
-#       select 'Date', :from => 'field_name'
-#       file_in 'Price', with: "10.00"
-#       click_on 'Create Book'
-#       visit books_path
-#       expect(page).to have_content('harry potter')
-#     end
-#   end
+  RSpec.describe 'Creating a book with an author, price, and published date', type: :feature do
+    scenario 'valid inputs' do
+      visit new_book_path
+      fill_in 'Title', with: 'harry potter'
+      fill_in 'Author', with: 'jk rowling'
+      fill_in 'Price', with: '45'
+      click_on 'Create Book'
+      visit books_path
+      expect(page).to have_content('45')
+    end
+  end
