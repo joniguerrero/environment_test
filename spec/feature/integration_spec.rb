@@ -10,3 +10,39 @@ RSpec.describe 'Creating a book', type: :feature do
         expect(page).to have_content('harry potter')
     end
 end
+
+RSpec.describe 'Creating a book with an author', type: :feature do
+    scenario 'valid inputs' do
+        visit new_book_path
+        fill_in 'Title', with: 'harry potter'
+        fill_in 'Author', with: 'J.K. Rowling'
+        click_on 'Create Book'
+        visit books_path
+        expect(page).to have_content('harry potter')
+    end
+end
+
+# RSpec.describe 'Creating a book with an author and date', type: :feature do
+#     scenario 'valid inputs' do
+#       visit new_book_path
+#       fill_in 'Title', with: 'harry potter'
+#       fill_in 'Author', with: 'J. K. Rowling'
+#       select 'Date', :from => 'field_name'
+#       click_on 'Create Book'
+#       visit books_path
+#       expect(page).to have_content('harry potter')
+#     end
+#   end
+
+#   RSpec.describe 'Creating a book with an author, date, and price', type: :feature do
+#     scenario 'valid inputs' do
+#       visit new_book_path
+#       fill_in 'Title', with: 'harry potter'
+#       fill_in 'Author', with: 'J. K. Rowling'
+#       select 'Date', :from => 'field_name'
+#       file_in 'Price', with: "10.00"
+#       click_on 'Create Book'
+#       visit books_path
+#       expect(page).to have_content('harry potter')
+#     end
+#   end
